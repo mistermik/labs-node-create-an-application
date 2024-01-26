@@ -85,7 +85,7 @@ app.get("/user", requiresAuth(), async (req, res) => {
   });
 });
 
-app.get("/expenses", async (req, res, next) => {
+app.get("/expenses", requiresAuth(), async (req, res, next) => {
   res.render("expenses", {
     user: req.oidc && req.oidc.user,
     expenses,
